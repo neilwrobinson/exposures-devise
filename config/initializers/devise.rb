@@ -299,6 +299,11 @@ Devise.setup do |config|
   # ==> Turbolinks configuration
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
   #
+
+  #https://github.com/heartcombo/devise/wiki/How-To:-Upgrade-to-Devise-4.9.0-%5BHotwire-Turbo-integration%5D
+  config.responder.error_status = :unprocessable_entity # added by NR on 2023-07-24
+  config.responder.redirect_status = :see_other # added by NR on 2023-07-24
+
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
