@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.3"
+ruby "3.2.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.3"
+gem "rails", "~> 7.0.5"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -49,7 +49,10 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Bootstrap 5
-gem 'bootstrap', '~> 5.1.3'
+ gem 'bootstrap', '~> 5.1.3'
+
+# Use Tachyons
+gem 'tachyons-rails', '~> 4.10'
 
 # Use Devise
 gem 'devise'
