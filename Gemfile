@@ -49,7 +49,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Bootstrap 5
- gem 'bootstrap', '~> 5.1.3'
+# gem 'bootstrap', '~> 5.1.3'
 
 # Use Tachyons
 gem 'tachyons-rails', '~> 4.10'
