@@ -1,25 +1,33 @@
-<div id="<%= dom_id photo %>">
+<article id="<%= dom_id photo %> " class="br2 ba dark-gray bg-light-green mb4">
 
-  <%= link_to image_tag(photo.image), photo.image %>
+<% link_to image_tag(photo.image), photo.image %>
 
-  <p>
-    <strong>Date:</strong>
-    <%= photo.date %>
-  </p>
+  <div class="aspect-ratio aspect-ratio--6x4 ">
+    <div class="aspect-ratio--object cover" style="background:url(<%= url_for(photo.image) %> ) center;"></div>
+    </div>
+    <div class="ma3-ns ma2-l ma0-m">
 
-  <p>
-    <strong>Title:</strong>
-    <%= photo.title %>
-  </p>
+    <p class="avenir f7 mv0">
+      <strong>Title: </strong>
+      <%= photo.title %> 
+    </p>
 
-  <p>
-    <strong>Location:</strong>
-    <%= photo.location %>
-  </p>
+    <p class="avenir f7 mv0">
+      <strong>Date: </strong>
+      <%= photo.date %> 
+    </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= photo.description %>
-  </p>
+    <p class="avenir f7 mv0">
+      <strong>Location: </strong>
+      <%= photo.location %> 
+    </p>
 
-</div>
+    <p class="measure 1h-copy pt0 avenir">
+      <strong>Description: </strong>
+      <%= photo.description %>       
+    </p>
+    <p>
+      <%= link_to "Show this photo", photo %>
+    </p>            
+  </div>
+</article>
