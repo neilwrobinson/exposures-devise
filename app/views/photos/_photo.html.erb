@@ -1,4 +1,4 @@
-<article id="<%= dom_id photo %> " class="br2 ba dark-gray bg-light-green mb4">
+<article id="<%= dom_id photo %> " class="br1 bw1 ba b--silver mb4 pa3 shawdow-1">
 
 <% link_to image_tag(photo.image), photo.image %>
 
@@ -7,10 +7,7 @@
     </div>
     <div class="ma3-ns ma2-l ma0-m">
 
-    <p class="avenir f7 mv0">
-      <strong>Title: </strong>
-      <%= photo.title %> 
-    </p>
+
 
     <p class="avenir f7 mv0">
       <strong>Date: </strong>
@@ -20,6 +17,11 @@
     <p class="avenir f7 mv0">
       <strong>Location: </strong>
       <%= photo.location %> 
+    </p>
+
+        <p class="measure 1h-copy pt0 avenir">
+      <strong>Title: </strong>
+      <%= photo.title %> 
     </p>
 
     <p class="measure 1h-copy pt0 avenir">
