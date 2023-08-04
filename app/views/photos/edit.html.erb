@@ -1,10 +1,12 @@
-<h1>Editing photo</h1>
+<section class="mw8 mw8-ns center pt3">
+  <h1 class="avenir f2 f1-m f-headline-l">Editing photo</h1>
 
-<%= render "form", photo: @photo %>
+  <%= render "form", photo: @photo %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this photo", @photo %> |
-  <%= link_to "Back to photos", photos_path %>
-</div>
+  <div>
+    <%= link_to "Show this photo", @photo, class: "avenir link dim dark-green f6 f5-ns dib mr3 mr4-ns" %> |
+    <%= link_to "Back to photos", photos_path, class: "avenir link dim dark-green f6 f5-ns dib mr3 mr4-ns" %>
+  </div>
+</section>

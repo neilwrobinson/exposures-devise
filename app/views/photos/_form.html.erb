@@ -1,42 +1,48 @@
-<%= form_with(model: photo) do |form| %>
-  <% if photo.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
 
-      <ul>
-        <% photo.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+  <%= form_with(model: photo) do |form| %>
+  <div class="avenir pa4 black-80">
+    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+        <% if photo.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+            <ul>
+              <% photo.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="mt3">
+          <%= form.label :date, class: "db fw4 lh-copy f6" %>
+          <%= form.date_field :date, class:"b pa2 input-reset ba bg-transparent" %>
+        </div>
+
+        <div class="mt3">
+          <%= form.label :title, class: "db fw4 lh-copy f6" %>
+          <%= form.text_field :title, class:"b pa2 input-reset ba bg-transparent" %>
+        </div>
+
+        <div class="mt3">
+          <%= form.label :location, class: "db fw4 lh-copy f6" %>
+          <%= form.text_field :location, class:"b pa2 input-reset ba bg-transparent" %>
+        </div>
+
+        <div class="mt3">
+          <%= form.label :description, class: "db fw4 lh-copy f6" %>
+          <%= form.text_area :description, class:"b pa2 input-reset ba bg-transparent" %>
+        </div>
+
+        <div class="mt3">
+          <%= form.label :image, class: "db fw4 lh-copy f6" %>
+          <%= form.file_field :image, class:"avenir b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"%>
+        </div>
+
+        <div class="mt3">
+          <%= form.submit class:"avenir b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" %>
+        </div>
+      </fieldset>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
-  </div>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :image %>
-    <%= form.file_field :image%>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
