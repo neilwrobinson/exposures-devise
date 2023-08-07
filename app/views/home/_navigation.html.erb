@@ -4,7 +4,7 @@
       </a>
       <div class="dtc v-mid w-75 tr">
         <%= link_to "Photos", photos_path, title: "Photos", class: "link dim dark-green f6 f5-ns dib mr3 mr4-ns"  %>
-        <a class="link dim dark-green f6 f5-ns dib mr3 mr4-ns" href="#" title="Categories">Categories</a>
+        <a class="link dim dark-green f6 f5-ns dib mr3 mr4-ns" href="tags" title="Categories">Categories</a>
         <a class="link dim dark-green f6 f5-ns dib mr3 mr4-ns" href="#" title="Time Series">Time Series</a>
         <%= link_to "Upload Picture", new_photo_path, title: "Upload Picture", class: "link dim dark-green f6 f5-ns dib mr3 mr4-ns"  %>
         <%= link_to_unless(user_signed_in?, "Log in", new_user_session_path, class: "avenir f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-green") do
