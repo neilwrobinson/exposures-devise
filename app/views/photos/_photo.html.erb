@@ -28,6 +28,18 @@
       <strong>Description: </strong>
       <%= photo.description %>       
     </p>
+
+    <p class="measure 1h-copy pt0 avenir">
+      <strong>Tags: </strong>
+      <% photo.tags.each do |tag| %>
+        <%= link_to tag, class: "avenir link dim dark-green f6 f5-ns dib" do %>
+          <span class="tag">
+            <%= tag.name.capitalize %>
+          </span>
+        <% end %>
+      <% end %> 
+    </p>
+    
     <p>
       <%= link_to "Show this photo", photo, class: "avenir link dim dark-green f6 f5-ns dib mr3 mr4-ns" %>
     </p>            

@@ -22,7 +22,8 @@ class PhotosController < ApplicationController
 
   # POST /photos or /photos.json
   def create
-    @photo = Photo.new(photo_params)
+    @photo = Photo.new(photo_params.except(:tags))
+    create_or_delete_posts_tags(@photo, params[:photo][:tags])
 
     respond_to do |format|
       if @photo.save
@@ -37,8 +38,10 @@ class PhotosController < ApplicationController
 
   # PATCH/PUT /photos/1 or /photos/1.json
   def update
+    create_or_delete_posts_tags(@photo, params[:photo][:tags])
+
     respond_to do |format|
-      if @photo.update(photo_params)
+      if @photo.update(photo_params.except(:tags))
         format.html { redirect_to photo_url(@photo), notice: "Photo was successfully updated." }
         format.json { render :show, status: :ok, location: @photo }
       else
@@ -59,6 +62,15 @@ class PhotosController < ApplicationController
   end
 
   private
+
+    def create_or_delete_posts_tags(photo, tags)
+      photo.taggables.destroy_all # to remove existing taggables.
+      tags = tags.strip.split(',')
+      tags.each do |tag|
+        photo.tags << Tag.find_or_create_by(name: tag)
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
       @photo = Photo.find(params[:id])
@@ -66,6 +78,6 @@ class PhotosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def photo_params
-      params.require(:photo).permit(:date, :title, :location, :description, :image)
+      params.require(:photo).permit(:date, :title, :location, :description, :image, :tags)
     end
 end

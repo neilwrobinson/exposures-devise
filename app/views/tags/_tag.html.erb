@@ -1,0 +1,14 @@
+<div id="<%= dom_id tag %>">
+  <p>
+    <strong>Name:</strong>
+    <%= tag.name %>
+  </p>
+
+  <% tag.taggables.each do |taggable| %>
+    <h2>Photos:</h2>
+    <%= render 'photos/photo', photo: taggable.photo %>
+    <hr>
+  <% end %>
+
+
+</div>

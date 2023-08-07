@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+<main section class="mw8 mw8-ns center pt3">
+
+  <h1 class="avenir f2 f1-m f-headline-l">Categories</h1>
+
+  <div id="tags">
+    <% @tags.each do |tag| %>
+      <%= render tag %>
+      <p>
+        <%= link_to "Show this tag", tag %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New tag", new_tag_path %>
+</main>

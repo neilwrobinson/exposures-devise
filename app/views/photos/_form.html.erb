@@ -40,6 +40,11 @@
         </div>
 
         <div class="mt3">
+          <%= form.label :tag, class: "db fw4 lh-copy f6" %>
+          <%= form.text_field :tags, value: photo.tags.map(&:name).join(","),  class:"b pa2 input-reset ba bg-transparent" %>
+        </div>
+
+        <div class="mt3">
           <%= form.submit class:"avenir b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" %>
         </div>
       </fieldset>
