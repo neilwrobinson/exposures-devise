@@ -1,7 +1,9 @@
 # Rails 7 Example App with Devise and Tachyons CSS
 Rails 7 with Devise 4.8.1 and Tachyons CSS
 
-This project is meant to serve as an example implementation of the Devise gem in a Rails 7 application. Bootstrap 5 is added throught the Bootstrap gem. All the Devise views come pre-styled. It is my goal to provide a Rails example app with up-to-date features.
+This project is meant to serve as an example implementation of the Devise gem in a Rails 7 application. 
+
+For learning purposes, I wanted to use both Active Storage and Carrierwave. 
 
 Feel free to use this as a skeleton for your project, fork it for your own purposes, or contribute to this repo.
 
@@ -16,8 +18,8 @@ This project is a work in progress; I plan to add more authentication features a
 ### Install
 
 ```
-git clone https://github.com/timothyjamesmarias/rails_7_devise_example.git
-cd rails_7_devise_example
+git clone https://github.com/neilwrobinson/exposures-devise.git
+cd exposures-devise
 
 bundle install
 rails db:create
@@ -38,6 +40,14 @@ rails s
 ### New Session
 
 ![sign-in](/media/2022-06-08-150325_1600x900_scrot.png)
+
+### Active Storage
+
+The model photo and photos controller are using Active Storage. The photo model has tagging capabilities.
+
+### CarrierWave
+
+
 
 ## References
 

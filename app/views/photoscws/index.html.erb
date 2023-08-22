@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Photoscws</h1>
+
+<div id="photoscws">
+  <% @photoscws.each do |photoscw| %>
+    <%= render photoscw %>
+    <p>
+      <%= link_to "Show this photoscw", photoscw %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New photoscw", new_photoscw_path %>
