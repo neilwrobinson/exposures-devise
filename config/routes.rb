@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :photoscws
+  resources :photoscws, path: :exposure
   resources :tags
   resources :photos
   get 'home/index'
