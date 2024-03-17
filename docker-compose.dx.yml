@@ -5,7 +5,7 @@ services:
   # This is the container where you will run Rails
   # and do development.  The value for IMAGE is provided by 
   # dx/docker-compose.env
-  sustainable-rails-dev:
+  exposures-devise:
     image: ${IMAGE}
     pull_policy: "missing"
     init: true

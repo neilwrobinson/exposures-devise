@@ -1,16 +1,35 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.1"
+ruby "3.2.3"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.5"
+gem "rails", "~> 7.1.0"
+
+# Brakeman analyzes our code for security vulnerabilities
+gem "brakeman"
+
+# bundler-audit checks our dependencies for vulnerabilities
+gem "bundler-audit"
+
+# lograge changes Rails' logging to a more 
+# traditional one-line-per-event format
+gem "lograge"
+
+# Sidekiq handles background jobs
+gem "sidekiq"
+
+# Foreman runs all processes for local development
+gem "foreman"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# Use postgresql as the database for Active Record
+gem "pg", "~> 1.1"
+
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+#gem "sqlite3", "~> 1.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -51,11 +70,16 @@ gem "bootsnap", require: false
 # Use Bootstrap 5
 # gem 'bootstrap', '~> 5.1.3'
 
+# All runtime config comes from the UNIX environment
+# but we use dotenv to store that in files for
+# development and testing
+gem "dotenv-rails", groups: [:development, :test]
+
 # Use Tachyons
 gem 'tachyons-rails', '~> 4.10'
 
 # Use Devise
-gem 'devise'
+gem 'devise', '~> 4.9.3'
 
 # Use CarrierWave
 gem 'carrierwave', '~> 3.0'

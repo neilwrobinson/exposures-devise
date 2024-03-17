@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails7DeviseExample</title>
+    <title>Exposures</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,8 +12,9 @@
 
   <body>
     <%= render "home/navigation" %>
+    <p class="pl4 avenir notice"><%= notice %></p>
+    <p class="pl4 avenir alert center"><%= alert %></p>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
   </body>
 </html>

@@ -1,19 +1,17 @@
 # Rails 7 Example App with Devise and Tachyons CSS
-Rails 7 with Devise 4.8.1 and Tachyons CSS
+Rails 7 with Devise 4.9.3 and Tachyons CSS
 
 This project is meant to serve as an example implementation of the Devise gem in a Rails 7 application. 
 
 For learning purposes, I wanted to use both Active Storage and Carrierwave. 
-
-Feel free to use this as a skeleton for your project, fork it for your own purposes, or contribute to this repo.
 
 This project is a work in progress; I plan to add more authentication features and better styling.
 
 ## Getting Started
 
 ### Requirements
-- Ruby 3.2.1
-- Rails 7.0.5
+- Ruby 3.2.3
+- Rails ~> 7.1.0
 
 ### Install
 

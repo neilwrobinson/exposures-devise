@@ -1,3 +1,4 @@
+# Photos using Carrier Wave instead of Active Storage (As a learning Point)
 class PhotoscwsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_photoscw, only: %i[ show edit update destroy ]
