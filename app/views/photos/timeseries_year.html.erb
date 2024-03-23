@@ -1,15 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
 <section class="mw8 mw8-ns center pt3">
 
   <h1 class="avenir f2 f1-m f-headline-l">Photos</h1>
+  <h2 class="avenir f2 f1-m ">Year <%= @year %></h2>
 
   <div id="photos">
     <% @photos.each do |photo| %>
       <%= render photo %>
     <% end %>
   </div>
-
-  <%= link_to "New photo", new_photo_path, class: "avenir link dim dark-green f6 f5-ns dib mr3 mr4-ns" %>
-
 </section>

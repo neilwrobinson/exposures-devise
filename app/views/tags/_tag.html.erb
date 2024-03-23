@@ -1,8 +1,5 @@
 <div id="<%= dom_id tag %>">
-  <p>
-    <strong>Name:</strong>
-    <%= tag.name %>
-  </p>
+
 
   <% tag.taggables.each do |taggable| %>
     <%= render 'photos/photo', photo: taggable.photo %>

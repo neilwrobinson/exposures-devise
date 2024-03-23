@@ -1,16 +1,12 @@
 <p style="color: green"><%= notice %></p>
-<main section class="mw8 mw8-ns center pt3">
+<section class="mw8 mw8-ns center pt3">
 
   <h1 class="avenir f2 f1-m f-headline-l">Categories</h1>
 
   <div id="tags">
     <% @tags.each do |tag| %>
+      <h2><%= link_to tag.name, tag, class: "avenir link dim dark-green f5 f2-ns dib mr3 mr4-ns" %></h2> 
       <%= render tag %>
-      <p>
-        <%= link_to "Show this tag", tag %>
-      </p>
     <% end %>
   </div>
-
-  <%= link_to "New tag", new_tag_path %>
-</main>
+</section>

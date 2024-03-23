@@ -12,9 +12,12 @@
 
   <body>
     <%= render "home/navigation" %>
-    <p class="pl4 avenir notice"><%= notice %></p>
-    <p class="pl4 avenir alert center"><%= alert %></p>
-    <%= yield %>
+
+    <main>
+      <p class="pl4 avenir notice"><%= notice %></p>
+      <p class="pl4 avenir alert center"><%= alert %></p>
+      <%= yield %>
+    </main>
 
   </body>
 </html>

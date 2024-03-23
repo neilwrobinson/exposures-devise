@@ -4,7 +4,24 @@ class PhotosController < ApplicationController
 
   # GET /photos or /photos.json
   def index
-    @photos = Photo.all
+    @photos = Photo.all.order(date: :desc)
+  end
+  
+  # GET /photos
+  def timeseries
+    # 'year' is the option to truncate the date to a year and filter by distinct (no duplicates)
+    # therefore, we should only have a range from the early 1800s (I guess that's when the first photo was taken)
+    # to present; therefore, it isn't too much to handle for Ruby to loop through in the .each method.
+    @photos = Photo.select("date_trunc('year', date)").distinct.order(date_trunc: :desc)
+  end
+
+  def timeseries_year
+    start_year = Time.new(params[:id].to_i)
+    #puts "====>>>>" + start_year.to_s
+    @year = start_year.year.to_s
+
+    # To be safe, I added hash braces to avoid sql injection. I believe it would be safe without.
+    @photos = Photo.where({:date => start_year..start_year.next_year}) 
   end
 
   # GET /photos/1 or /photos/1.json

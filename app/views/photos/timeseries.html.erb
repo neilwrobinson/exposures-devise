@@ -1,0 +1,15 @@
+
+<section class="mw8 mw8-ns center pt3">
+
+  <h1 class="avenir f2 f1-m f-headline-l">Choose a Year</h1>
+
+  <div id="photos">
+    <ul>
+    <% @photos.each do |photo| %>
+      <li class="list pl0">
+        <a href="timeseries/<%= photo.date_trunc.year %>", class="link dim dark-green avenir f3 f2-ns dib mb2 mr3 mr4-ns"><%= photo.date_trunc.year %></a>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</section>
