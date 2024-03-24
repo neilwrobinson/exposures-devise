@@ -2,12 +2,6 @@
 
 one:
   date: 2023-08-21
-  title: MyString
-  location: MyString
-  description: MyString
-
-two:
-  date: 2023-08-21
-  title: MyString
-  location: MyString
-  description: MyString
+  title: Ottawa Crane (Carrier Wave)
+  location: Ottawa, Canada (Carrier Wave)
+  description: Crane on top of building (Carrier Wave)

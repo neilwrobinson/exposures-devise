@@ -3,9 +3,9 @@ Rails 7 with Devise 4.9.3 and Tachyons CSS
 
 This project is meant to serve as an example implementation of the Devise gem in a Rails 7 application. 
 
-For learning purposes, I wanted to use both Active Storage and Carrierwave. 
+For learning purposes, I wanted to use both Active Storage and Carrierwave. That's why you'll see two models/controllers. 
 
-This project is a work in progress; I plan to add more authentication features and better styling.
+This project is a work in progress; I plan to add more authentication features, testing, background jobs, and better styling.
 
 ## Getting Started
 
@@ -18,12 +18,37 @@ This project is a work in progress; I plan to add more authentication features a
 ```
 git clone https://github.com/neilwrobinson/exposures-devise.git
 cd exposures-devise
+```
 
+This is meant to be run in docker. See dx folder
+
+Inside the dx/docker-compose.env file please update IMAGE= to reference your docker user name.
+```
+IMAGE=your_docker_id_here/exposures-devise
+PROJECT_NAME=exposures-devise
+DEFAULT_SERVICE=exposures-devise
+```
+Then Run
+```
+dx/build
+dx/start
+dx/exec bash 
+```
+dx/exec bash command will run a bash shell for you to run rails
+
+
+```
 bundle install
-rails db:create
-rails db:migrate
+bin/setup
+bin/run
+```
+This should get your started.
 
-rails s
+You can also run:
+```
+bin/psql (for psql prompt)
+bin/ci   (for running tests)
+
 ```
 
 ## App Screenshots
@@ -50,3 +75,5 @@ The model photo and photos controller are using Active Storage. The photo model 
 ## References
 
 I took inspiration from [this project](https://github.com/imhta/rails_6_devise_example). If you are using Rails 6, be sure to check it out!
+
+I also use https://github.com/sustainable-rails/sustainable-rails-dev for the dev environment. This is a big time saver.

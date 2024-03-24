@@ -1,8 +1,12 @@
 require "test_helper"
-
+# FIXME: to fix carrierwave tests (get and show)
+# TODO: to update carrierwave tests
 class PhotoscwsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
+    sign_in users(:user_one)
     @photoscw = photoscws(:one)
+    @tag = tags(:one)
   end
 
   test "should get index" do
@@ -17,7 +21,12 @@ class PhotoscwsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create photoscw" do
     assert_difference("Photoscw.count") do
-      post photoscws_url, params: { photoscw: { date: @photoscw.date, description: @photoscw.description, location: @photoscw.location, title: @photoscw.title } }
+      post photoscws_url, params: { 
+        photoscw: { date: @photoscw.date, 
+                    description: @photoscw.description, 
+                    location: @photoscw.location, 
+                    title: @photoscw.title } 
+      }
     end
 
     assert_redirected_to photoscw_url(Photoscw.last)
@@ -34,7 +43,12 @@ class PhotoscwsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update photoscw" do
-    patch photoscw_url(@photoscw), params: { photoscw: { date: @photoscw.date, description: @photoscw.description, location: @photoscw.location, title: @photoscw.title } }
+    patch photoscw_url(@photoscw), params: { 
+      photoscw: { date: @photoscw.date, 
+                  description: @photoscw.description, 
+                  location: @photoscw.location, 
+                  title: @photoscw.title } 
+    }
     assert_redirected_to photoscw_url(@photoscw)
   end
 

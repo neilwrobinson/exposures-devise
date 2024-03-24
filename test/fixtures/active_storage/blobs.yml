@@ -1,0 +1,4 @@
+
+one_blob: <%= ActiveStorage::FixtureSet.blob filename: "2023-06-09-Ottawa-Crane.jpg", service_name: "test" %>
+
+ 

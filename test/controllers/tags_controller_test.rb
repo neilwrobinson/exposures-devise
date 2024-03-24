@@ -1,7 +1,9 @@
 require "test_helper"
 
 class TagsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
+    sign_in users(:user_one)
     @tag = tags(:one)
   end
 

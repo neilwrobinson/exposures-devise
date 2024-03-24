@@ -1,0 +1,5 @@
+one:
+  name: image
+  record: one
+  record_type: Photo
+  blob: one_blob
