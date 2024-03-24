@@ -2,7 +2,6 @@ require "test_helper"
 # FIXME: to fix carrierwave tests (get and show)
 # TODO: to update carrierwave tests
 class PhotoscwsControllerTest < ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers
   setup do
     sign_in users(:user_one)
     @photoscw = photoscws(:one)
