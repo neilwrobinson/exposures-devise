@@ -51,6 +51,12 @@ bin/ci   (for running tests)
 
 ```
 
+### 
+Sidekiq
+If you are missing bin/sidekiq files (binstub), run:
+```
+bundle binstub sidekiq
+```
 ## App Screenshots
 
 ### Home Index Page

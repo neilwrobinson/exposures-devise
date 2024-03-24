@@ -33,6 +33,9 @@ config/master.key
 # TODO Comment out this rule if environment variables can be committed
 .env
 
+# Procfile.dev is generated, so should not be checked in
+Procfile.dev
+
 ## Environment normalization:
 /.bundle
 /vendor/bundle
