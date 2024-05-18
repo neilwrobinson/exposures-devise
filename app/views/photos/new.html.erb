@@ -1,5 +1,6 @@
 <main section class="mw8 mw8-ns center pt3">
   <h1 class="avenir f2 f1-m f-headline-l">New photo</h1>
+  <%= link_to "Batch uploads", upload_pictures_path, class: "avenir link dim dark-green f6 f5-ns dib mr3 mr4-ns" %>
 
   <%= render "form", photo: @photo %>
 

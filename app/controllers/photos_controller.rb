@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
     @photos = Photo.all.order(date: :desc)
   end
   
-  # GET /photos
+  # GET /timeseries
   def timeseries
     # 'year' is the option to truncate the date to a year and filter by distinct (no duplicates)
     # therefore, we should only have a range from the early 1800s (I guess that's when the first photo was taken)
@@ -14,6 +14,7 @@ class PhotosController < ApplicationController
     @photos = Photo.select("date_trunc('year', date)").distinct.order(date_trunc: :desc)
   end
 
+  # GET /timeseries/2024
   def timeseries_year
     start_year = Time.new(params[:id].to_i)
     #puts "====>>>>" + start_year.to_s
@@ -50,6 +51,49 @@ class PhotosController < ApplicationController
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def batch_upload
+    @photo_batch = Photo.new
+  end
+
+  def batch_upload_create
+
+    # Purpose: To learn how to upload batch photos / ActiveModels.
+    #TODO: (1) add in error handling
+    #TODO: (2) add in better response 
+    #TODO: (3) move to services controller (Business logic)
+    #TODO: (4) convert to a background job using sidekiq.
+
+
+    #@photos = params[:photo][:image] # ActionDispatch::Http::UploadedFile object
+
+    @photos = photo_batch_params
+
+    photo_title = @photos[:title]
+    uploaded_files = @photos[:image] # An Array of ActionDispatch::Http::UploadedFile object (But the first element is an empty String)
+
+    x = 0 # counter
+    uploaded_files.each do |file|      
+      # For some reason there is an empty string in this Array, which causes 
+      if file.is_a? ActionDispatch::Http::UploadedFile 
+          photo = Photo.new
+
+          x+=1
+          puts "File number: #{x}"
+          puts file.is_a? ActionDispatch::Http::UploadedFile
+          photo[:title] = photo_title.to_s + "#{x}"
+          photo.date = Time.new
+          photo.image.attach(file)            # https://api.rubyonrails.org/v7.1.3.2/classes/ActiveStorage/Attached/One.html#method-i-attach
+
+          if photo.save
+            puts "photo number: #{x} saved."
+          else
+            puts "photo number: #{x} not saved!"
+          end
+      end
+    end
+    redirect_to upload_pictures_path
   end
 
   # PATCH/PUT /photos/1 or /photos/1.json
@@ -96,4 +140,9 @@ class PhotosController < ApplicationController
     def photo_params
       params.require(:photo).permit(:date, :title, :location, :description, :image, :tags)
     end
+
+    def photo_batch_params
+      params.require(:photo).permit(:title, image:[])
+    end
+
 end
