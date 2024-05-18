@@ -1,7 +1,7 @@
 <div class="avenir pa4 black-8">
     <h1 class="lh-copy">Welcome</h1>
     <h3 class="lh-copy">Please sign up to view photos</h3>
-    <%= link_to "Sign Up", new_user_registration_path, class: "avenir f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-green" %>
+    <%= link_to_unless user_signed_in?, "Sign Up", new_user_registration_path, class: "avenir f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-green" do end %>
     <%= link_to_unless(user_signed_in?, "Log in", new_user_session_path, class: "avenir f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-green") do
         link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "avenir f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-green"
     end
