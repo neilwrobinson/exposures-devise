@@ -15,6 +15,7 @@ class PhotosController < ApplicationController
   end
 
   # GET /timeseries/2024
+  # TODO: check if SQL injection on the url paramaters (year)
   def timeseries_year
     start_year = Time.new(params[:id].to_i)
     #puts "====>>>>" + start_year.to_s
@@ -61,9 +62,8 @@ class PhotosController < ApplicationController
 
     # Purpose: To learn how to upload batch photos / ActiveModels.
     #TODO: (1) add in error handling
-    #TODO: (2) add in better response 
-    #TODO: (3) move to services controller (Business logic)
-    #TODO: (4) convert to a background job using sidekiq.
+    #TODO: (2) move to services controller (Business logic)
+    #TODO: (3) convert to a background job using sidekiq.
 
 
     #@photos = params[:photo][:image] # ActionDispatch::Http::UploadedFile object
@@ -74,6 +74,8 @@ class PhotosController < ApplicationController
     uploaded_files = @photos[:image] # An Array of ActionDispatch::Http::UploadedFile object (But the first element is an empty String)
 
     x = 0 # counter
+    upload_errors = String.new
+
     uploaded_files.each do |file|      
       # For some reason there is an empty string in this Array, which causes 
       if file.is_a? ActionDispatch::Http::UploadedFile 
@@ -87,13 +89,21 @@ class PhotosController < ApplicationController
           photo.image.attach(file)            # https://api.rubyonrails.org/v7.1.3.2/classes/ActiveStorage/Attached/One.html#method-i-attach
 
           if photo.save
-            puts "photo number: #{x} saved."
+            puts "photo number: #{file.original_filename.to_s} saved."
           else
-            puts "photo number: #{x} not saved!"
+            puts "photo number: #{file.original_filename.to_s} was not saved!"
+            upload_errors.concat("photo: #{file.original_filename.to_s} was not saved!")
           end
       end
     end
-    redirect_to upload_pictures_path
+  
+    respond_to do |format|
+      if upload_errors.empty?
+        format.html { redirect_to upload_pictures_path, notice: "All photos were successfully uploaded." }
+      else
+        format.html { redirect_to upload_pictures_path, notice: upload_errors }
+      end
+    end
   end
 
   # PATCH/PUT /photos/1 or /photos/1.json
