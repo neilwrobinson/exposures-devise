@@ -15,13 +15,11 @@ class PhotosController < ApplicationController
   end
 
   # GET /timeseries/2024
-  # TODO: check if SQL injection on the url paramaters (year)
   def timeseries_year
     start_year = Time.new(params[:id].to_i)
-    #puts "====>>>>" + start_year.to_s
-    @year = start_year.year.to_s
 
-    # To be safe, I added hash braces to avoid sql injection. I believe it would be safe without.
+    # I added hash braces to avoid sql injection. I believe it would be safe without.
+    # https://guides.rubyonrails.org/active_record_querying.html#hash-conditions
     @photos = Photo.where({:date => start_year..start_year.next_year}) 
   end
 
