@@ -1,4 +1,4 @@
-# Rails 7 Example App with Devise and Tachyons CSS
+# Rails 7 Breakable Toy App with Devise and Tachyons CSS
 Rails 7 with Devise 4.9.3 and Tachyons CSS
 
 This project is meant to serve as an example implementation of the Devise gem in a Rails 7 application. 
@@ -10,7 +10,7 @@ This project is a work in progress; I plan to add more authentication features, 
 ## Getting Started
 
 ### Requirements
-- Ruby 3.2.3
+- Ruby 3.2.4
 - Rails ~> 7.1.0
 
 ### Install
@@ -59,16 +59,16 @@ bundle binstub sidekiq
 ```
 ## App Screenshots
 
-### Home Index Page
-![home-page](/media/2022-06-08-150451_1600x900_scrot.png)
+### Sign in Page
+![home-page](/media/2024-06-30-Login-Screenshot.PNG)
 
-### New Registrations
+### Example Photo on Login
 
-![sign-up](/media/2022-06-08-150511_1600x900_scrot.png)
+![sign-up](/media/2024-06-30-Penny-Screenshot.PNG)
 
-### New Session
+### Times Series (i.e. SQL query distinct years)
 
-![sign-in](/media/2022-06-08-150325_1600x900_scrot.png)
+![sign-in](/media/2024-06-30-TimeSeries-Screenshot.PNG)
 
 ### Active Storage
 
