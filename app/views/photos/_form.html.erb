@@ -40,7 +40,7 @@
         </div>
 
         <div class="mt3">
-          <%= form.label :tag, class: "db fw4 lh-copy f6" %>
+          <%= form.label :tags_separate_by_comma, class: "db fw4 lh-copy f6" %>
           <%= form.text_field :tags, value: photo.tags.map(&:name).join(","),  class:"b pa2 input-reset ba bg-transparent" %>
         </div>
 

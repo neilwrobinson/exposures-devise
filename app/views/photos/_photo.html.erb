@@ -1,47 +1,45 @@
-<article id="<%= dom_id photo %> " class="br1 bw1 ba b--silver mr1 ml1 mb4 pa3 shadow-1">
-
-<% link_to image_tag(photo.image), photo.image %>
-
-  <div class="aspect-ratio aspect-ratio--6x4 ">
-    <div class="aspect-ratio--object cover" style="background:url(<%= url_for(photo.image) %> ) center;"></div>
+<article id="<%= dom_id photo %> " class="br1 bw1 ba b--silver mr1 ml1 mb3 pa1 pa2-ns shadow-1 avenir">
+  <%= link_to photo do %>
+    <div class="aspect-ratio aspect-ratio--6x4 ma0">
+      <div class="aspect-ratio--object cover" style="background:url(<%= url_for(photo.image) %> ) center;"></div>
     </div>
-    <div class="ma3-ns ma2-l ma0-m">
+  <% end %>
 
+  <p class="f5 f2-ns fw8 mb2">
+    <%= photo.title %> 
+  </p>
 
+  <p class="f7 mv0">
+    <strong>Date: </strong>
+    <%= photo.date %> 
+  </p>
 
-    <p class="avenir f7 mv0">
-      <strong>Date: </strong>
-      <%= photo.date %> 
-    </p>
+  <p class="f7 mv0">
+    <strong>Location: </strong>
+    <%= photo.location %> 
+  </p>
 
-    <p class="avenir f7 mv0">
-      <strong>Location: </strong>
-      <%= photo.location %> 
-    </p>
+  <p class="1h-copy pt0">
+    <strong>Description: </strong>
+    <%= photo.description %>       
+  </p>
 
-        <p class="measure 1h-copy pt0 avenir">
-      <strong>Title: </strong>
-      <%= photo.title %> 
-    </p>
-
-    <p class="measure 1h-copy pt0 avenir">
-      <strong>Description: </strong>
-      <%= photo.description %>       
-    </p>
-
-    <p class="measure 1h-copy pt0 avenir">
-      <strong>Tags: </strong>
-      <% photo.tags.each do |tag| %>
-        <%= link_to tag, class: "avenir link dim dark-green f6 f5-ns dib" do %>
-          <span class="tag">
-            <%= tag.name.capitalize %>
-          </span>
-        <% end %>
-      <% end %> 
-    </p>
-    
-    <p>
-      <%= link_to "Show this photo", photo, class: "avenir link dim dark-green f6 f5-ns dib mr3 mr4-ns" %>
-    </p>            
-  </div>
+  <p class="1h-copy pt0">
+    <strong>Tags: </strong>
+    <% photo.tags.each do |tag| %>
+      <%= link_to tag, class: "link dim dark-green f6 f5-ns dib" do %>
+        <span class="tag">
+          <%= tag.name.capitalize %>
+        </span>
+      <% end %>
+    <% end %> 
+  </p>
+  
+  <%= link_to "Edit this photo", edit_photo_path(photo), class: "avenir db link dim dark-green f6 f5-ns mr3 mb3 mr4-ns" %>
+  <%= link_to "Destroy this photo ⚠", photo,
+              data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure you want to delete this photo?"
+              }, 
+              class: "avenir button-reset db link dim dark-green f6 f5-ns mr3 mb3 mr4-ns" %>
 </article>

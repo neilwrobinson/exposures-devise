@@ -1,10 +1,1 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @photo %>
-
-<div class="ma4 ma4-ns">
-  <%= link_to "Edit this photo", edit_photo_path(@photo), class: "avenir db link dim dark-green f6 f5-ns mr3 mb3 mr4-ns" %>
-  <%= link_to "Back to photos", photos_path, class: "avenir db link dim dark-green f6 f5-ns mr3 mb3 mr4-ns" %>
-
-  <%= button_to "Destroy this photo", @photo, method: :delete, class: "avenir db fw4 f6" %>
-</div>
