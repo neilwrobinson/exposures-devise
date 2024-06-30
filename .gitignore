@@ -6,6 +6,7 @@ capybara-*.html
 /db/*.sqlite3-[0-9]*
 /public/system
 /public/uploads/photoscw
+/public/uploads/tmp
 /coverage/
 /spec/tmp
 *.orig
