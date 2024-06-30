@@ -9,22 +9,22 @@
     <%= photo.title %> 
   </p>
 
-  <p class="f7 mv0">
+  <p class="f7 lh-copy mv0">
     <strong>Date: </strong>
     <%= photo.date %> 
   </p>
 
-  <p class="f7 mv0">
+  <p class="f7 lh-copy mv0">
     <strong>Location: </strong>
     <%= photo.location %> 
   </p>
 
-  <p class="1h-copy pt0">
+  <p class="lh-copy pt0">
     <strong>Description: </strong>
     <%= photo.description %>       
   </p>
 
-  <p class="1h-copy pt0">
+  <p class="lh-copy pt0">
     <strong>Tags: </strong>
     <% photo.tags.each do |tag| %>
       <%= link_to tag, class: "link dim dark-green f6 f5-ns dib" do %>
@@ -34,12 +34,14 @@
       <% end %>
     <% end %> 
   </p>
-  
-  <%= link_to "Edit this photo", edit_photo_path(photo), class: "avenir db link dim dark-green f6 f5-ns mr3 mb3 mr4-ns" %>
-  <%= link_to "Destroy this photo ⚠", photo,
-              data: {
-                turbo_method: :delete,
-                turbo_confirm: "Are you sure you want to delete this photo?"
-              }, 
-              class: "avenir button-reset db link dim dark-green f6 f5-ns mr3 mb3 mr4-ns" %>
+
+  <section class="flex items-center justify-center">
+    <%= link_to "📝", edit_photo_path(photo), class: "avenir db link dim dark-green f6 f5-ns mr3 mb3 mr4-ns" %>
+    <%= link_to "✖ ", photo,
+                data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure you want to delete this photo?"
+                }, 
+                class: "avenir button-reset db link dim dark-green f6 f5-ns mr3 mb3 mr4-ns" %>
+  </section>
 </article>
