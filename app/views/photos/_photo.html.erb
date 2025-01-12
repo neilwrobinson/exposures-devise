@@ -36,8 +36,9 @@
   </p>
 
   <section class="flex items-center justify-center">
-    <%= link_to "📝", edit_photo_path(photo), class: "avenir db link dim dark-green f6 f5-ns mr3 mb3 mr4-ns" %>
+    <%= link_to "📝", edit_photo_path(photo), title: "Edit", class: "avenir db link dim dark-green f6 f5-ns mr3 mb3 mr4-ns" %>
     <%= link_to "✖ ", photo,
+                title: "Delete",
                 data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure you want to delete this photo?"

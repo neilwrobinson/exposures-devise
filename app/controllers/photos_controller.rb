@@ -16,11 +16,10 @@ class PhotosController < ApplicationController
 
   # GET /timeseries/2024
   def timeseries_year
-    start_year = Time.new(params[:id].to_i)
+    @start_year = Time.new(params[:id].to_i)
 
-    # I added hash braces to avoid sql injection. I believe it would be safe without.
-    # https://guides.rubyonrails.org/active_record_querying.html#hash-conditions
-    @photos = Photo.where({:date => start_year..start_year.next_year}) 
+
+    @photos = Photo.where(date: @start_year..@start_year.next_year) 
   end
 
   # GET /photos/1 or /photos/1.json
@@ -75,7 +74,7 @@ class PhotosController < ApplicationController
     upload_errors = String.new
 
     uploaded_files.each do |file|      
-      # For some reason there is an empty string in this Array, which causes 
+      # For some reason there is an empty string in this Array, so make sure file is an UploadedFile. 
       if file.is_a? ActionDispatch::Http::UploadedFile 
           photo = Photo.new
 
