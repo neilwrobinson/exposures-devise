@@ -2,7 +2,7 @@ require "sidekiq/web" # Brings in the Sidekiq Web UI
 
 Rails.application.routes.draw do
   resources :photoscws, path: :exposure # using carrier wave
-  resources :tags
+  resources :tags, only: [:index, :show ]
   resources :photos # using active storage
   get 'timeseries', to: 'photos#timeseries'
   get 'timeseries/:id', to: 'photos#timeseries_year'
